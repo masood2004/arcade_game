@@ -1,9 +1,9 @@
 from turtle import Screen
-
 from ball import Ball
 from paddle import Paddle
-
+from scoreboard import Scoreboard
 import time
+
 
 # Set up the screen
 screen = Screen()
@@ -15,6 +15,7 @@ screen.tracer(0)  # Turn off the screen animation
 r_paddle = Paddle(xcor=350, ycor=0)
 l_paddle = Paddle(xcor=-350, ycor=0)
 ball = Ball()
+scoreboard = Scoreboard()
 
 # Listen for keyboard input and bind keys
 screen.listen()
@@ -29,7 +30,7 @@ game_is_on = True
 
 # while loop to continuously updating the screen
 while game_is_on:
-    time.sleep(0.05)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
 
@@ -41,9 +42,11 @@ while game_is_on:
 
     if ball.xcor() > 400:
         ball.reset()
+        scoreboard.l_point()
 
     if ball.xcor() < -400:
         ball.reset()
+        scoreboard.r_point()
 
 # Exit on click
 screen.exitonclick()

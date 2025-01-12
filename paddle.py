@@ -12,9 +12,9 @@ class Paddle(Turtle):
         self.goto(xcor, ycor)
 
     def move_up(self):
-        # Move the paddle upward by 15 units
-        self.sety(self.ycor() + 15)
+        # Move the paddle upward by 20 units
+        self.sety(self.ycor() + 20)
 
     def move_down(self):
-        # Move the paddle upward by -15 units
-        self.sety(self.ycor() - 15)
+        # Move the paddle upward by -20 units
+        self.sety(self.ycor() - 20)
